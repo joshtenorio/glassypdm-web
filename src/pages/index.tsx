@@ -14,7 +14,7 @@ export default function Home() {
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
             glassyPDM
           </h1>
-          <h2 className="text-white font-semibold text-2xl">soon</h2>
+          <h2 className="text-white font-semibold text-2xl">website under construction</h2>
         </div>
       </main>
     </>
