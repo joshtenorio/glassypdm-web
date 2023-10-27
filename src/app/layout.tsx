@@ -1,3 +1,6 @@
+import "~/styles/globals.css";
+import { ThemeProvider } from "~/ui/theme-provider";
+
 export default function RootLayout({
     children,
   }: {
@@ -5,7 +8,15 @@ export default function RootLayout({
   }) {
     return (
       <html lang="en">
-        <body>{children}</body>
+        <body>
+            <ThemeProvider attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+            >
+            {children}
+            </ThemeProvider>
+            </body>
       </html>
     )
   }
