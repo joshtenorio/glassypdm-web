@@ -1,6 +1,7 @@
 import { Commit, ServerCommit } from "~/lib/types";
 import { Button } from "~/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/ui/card";
+import { Metadata } from "next";
 
 async function getData() {
   const res: Response = await fetch("https://app.pdm.18x18az.org/info/commit/recent", { cache: "no-store" });
@@ -22,6 +23,10 @@ async function getData() {
     console.error(err);
   }
   return output;
+}
+
+export const metadata: Metadata = {
+  title: "glassyPDM"
 }
 
 export default async function Page() {
