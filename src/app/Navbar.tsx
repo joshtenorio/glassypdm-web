@@ -5,7 +5,11 @@ import { cn } from '~/lib/utils'
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '~/ui/navigation-menu'
 import { Separator } from '~/ui/separator'
 
-function SimpleNavbarItem(props: any) {
+interface SimpleNavbarItemProps {
+    href: string
+    desc: string
+}
+function SimpleNavbarItem(props: SimpleNavbarItemProps) {
     return (
         <NavigationMenuItem>
         <Link href={props.href} legacyBehavior passHref>

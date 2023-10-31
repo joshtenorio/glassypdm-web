@@ -1,24 +1,24 @@
-import { Commit } from "~/lib/types";
+import { Commit, ServerCommit } from "~/lib/types";
 import { Button } from "~/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/ui/card";
 
 async function getData() {
   const res: Response = await fetch("https://app.pdm.18x18az.org/info/commit/recent", { cache: "no-store" });
-  const data = await res.json();
-  let output: Commit[] = [];
+  const data: ServerCommit[] = await res.json() as ServerCommit[];
+  const output: Commit[] = [];
   try {
     for(let i = 0; i < data.length; i++) {
-      const commit = data[i];
+      const commit: ServerCommit = data[i]!;
       output.push({
-        id: commit["id"],
+        id: commit.id,
         projectID: 0,
-        authorID: commit["authorID"],
-        message: commit["message"],
-        fileCount: commit["filecount"],
-        timestamp: parseInt(commit["timestamp"]) / 1000.0
+        authorID: commit.authorID,
+        message: commit.message,
+        fileCount: commit.filecount,
+        timestamp: parseInt(commit.timestamp) / 1000.0
       });
     }
-  } catch(err: any) {
+  } catch(err) {
     console.error(err);
   }
   return output;
@@ -34,7 +34,7 @@ export default async function Page() {
         d.setUTCSeconds(value.timestamp);
         const msg = value.message !== "" ? <div><i>{value.message}</i><br></br></div> : <p></p>
         return (
-          <div className="mb-5 mx-5">
+          <div className="mb-5 mx-5" key={value.timestamp}>
             <Card>
               <CardHeader>
                 <CardTitle>{value.authorID} updated {value.fileCount} files</CardTitle>
