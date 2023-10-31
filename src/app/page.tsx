@@ -26,16 +26,15 @@ async function getData() {
 
 export default async function Page() {
   const data = await getData();
-  console.log(data);
     return <>
-    <p className="text-3xl mx-8 my-5">Home</p>
+    <p className="text-3xl mx-8 mt-5 mb-2">Home</p>
     {
       data.map( (value: Commit) => {
         const d = new Date(0);
         d.setUTCSeconds(value.timestamp);
         const msg = value.message !== "" ? <div><i>{value.message}</i><br></br></div> : <p></p>
         return (
-          <div className="m-5">
+          <div className="mb-5 mx-5">
             <Card>
               <CardHeader>
                 <CardTitle>{value.authorID} updated {value.fileCount} files</CardTitle>

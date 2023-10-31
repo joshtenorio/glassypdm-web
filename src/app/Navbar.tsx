@@ -1,18 +1,45 @@
+"use client"
 import Link from 'next/link'
 import React from 'react'
+import { cn } from '~/lib/utils'
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '~/ui/navigation-menu'
 import { Separator } from '~/ui/separator'
 
 function Navbar() {
   return (
     <div>
-        <div className="flex space-x-5">
-            <Link href="/" className='text-5xl'>glassyPDM</Link>
-            <div className='flex flex-row place-items-center space-x-5'>
-                <Link href="/files" className='text-xl'>Project Files</Link>      
-                <Link href="/about" className='text-xl'>About</Link>      
-                <Link href="/login" className='text-xl'>Login</Link>     
-            </div> 
-        </div>
+        <NavigationMenu>
+            <NavigationMenuList>
+                <NavigationMenuItem>
+                    <Link href="/" legacyBehavior passHref>
+                        <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "font-normal text-5xl my-1")}>
+                            glassyPDM
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <Link href="/files" legacyBehavior passHref>
+                        <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "font-normal text-base my-1")}>
+                            Project Files
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <Link href="/about" legacyBehavior passHref>
+                        <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "font-normal text-base my-1")}>
+                            About
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <Link href="/login" legacyBehavior passHref>
+                        <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "font-normal text-base my-1")}>
+                            Login
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
+            </NavigationMenuList>
+        </NavigationMenu>
         <Separator />
     </div>
   )
