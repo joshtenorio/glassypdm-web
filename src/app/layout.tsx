@@ -1,3 +1,4 @@
+import { GeistSans } from "geist/font";
 import "~/styles/globals.css";
 import { ThemeProvider } from "~/ui/theme-provider";
 
@@ -7,7 +8,7 @@ export default function RootLayout({
     children: React.ReactNode
   }) {
     return (
-      <html lang="en">
+      <html lang="en" className={`${GeistSans.variable}`}>
         <body>
             <ThemeProvider attribute="class"
             defaultTheme="dark"
