@@ -1,6 +1,7 @@
 import { GeistSans } from "geist/font";
 import "~/styles/globals.css";
 import { ThemeProvider } from "~/ui/theme-provider";
+import Navbar from "./Navbar";
 
 export default function RootLayout({
     children,
@@ -15,6 +16,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
             >
+              <Navbar/>
             {children}
             </ThemeProvider>
             </body>
