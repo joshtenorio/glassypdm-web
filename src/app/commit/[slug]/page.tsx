@@ -10,7 +10,7 @@ interface DownloadResponse {
 
 async function getLink(s3key: string) {
     const request = "https://app.pdm.18x18az.org/download/s3/" + s3key;
-    const response = await fetch(request, { cache: 'no-store' });
+    const response = await fetch(request, { next: { revalidate: 3580 } });
     const data = await response.json() as DownloadResponse;
 
     return data.s3Url;

@@ -10,6 +10,7 @@ function Page() {
     </p>
     <br></br>
     <h2 className="text-2xl">Source Code</h2>
+    <p>glassyPDM is 100% free and open source software.</p>
     <p>The source code for this website is hosted on <a className="underline" href="https://git.sr.ht/~joshtenorio/glassypdm-web" target='_blank'>Sourcehut</a>.</p>
     <br></br>
     <h2 className="text-2xl">License</h2>
