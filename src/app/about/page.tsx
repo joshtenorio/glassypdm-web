@@ -13,7 +13,7 @@ function Page() {
     <p>The source code for this website is hosted on <a className="underline" href="https://git.sr.ht/~joshtenorio/glassypdm-web" target='_blank'>Sourcehut</a>.</p>
     <br></br>
     <h2 className="text-2xl">License</h2>
-    <p>glassyPDM is licensed under the GNU Affero General Public License.</p>
+    <p>The glassyPDM webapp is licensed under the GNU Affero General Public License.</p>
     </div>
     </div>
   )
