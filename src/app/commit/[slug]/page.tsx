@@ -18,7 +18,7 @@ async function getLink(s3key: string) {
 
 async function getData(commitid: string) {
     const request = "https://app.pdm.18x18az.org/info/commit/" + commitid;
-    const res = await fetch(request, { cache: 'no-store' });
+    const res = await fetch(request, { next: { revalidate: 3570 } });
     const commit = await res.json() as CommitFull;
 
     for (let i = 0; i < commit.files.length; i++) {
