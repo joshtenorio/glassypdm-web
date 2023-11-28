@@ -2,9 +2,12 @@ import { Commit, ServerCommit } from "~/lib/types";
 import { Button } from "~/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/ui/card";
 import { Metadata } from "next";
+import Link from "next/link";
 
 async function getData() {
-  const res: Response = await fetch("https://app.pdm.18x18az.org/info/commit/recent");
+  const res: Response = await fetch("https://app.pdm.18x18az.org/info/commit/recent", { 
+next: { revalidate: 450 } });
+
   const data: ServerCommit[] = await res.json() as ServerCommit[];
   const output: Commit[] = [];
   try {
@@ -38,15 +41,20 @@ export default async function Page() {
         const d = new Date(0);
         d.setUTCSeconds(value.timestamp);
         const msg = value.message !== "" ? <div><i>{value.message}</i><br></br></div> : <p></p>
+        const url = "/commit/" + value.id.toString();
         return (
           <div className="mb-5 mx-5" key={value.timestamp}>
             <Card>
               <CardHeader>
-                <CardTitle>{value.authorID} updated {value.fileCount} files</CardTitle>
-                <CardDescription>{d.toLocaleString()}</CardDescription>
+                <CardTitle>Update {value.id}: {value.authorID} updated {value.fileCount} files</CardTitle>
+                <CardDescription>{d.toLocaleString()} UTC</CardDescription>
                 <CardContent>
                   {msg}
-                  <Button>Review Changes</Button>
+                  <Button>
+                    <Link href={url}>
+                    Review Changes
+                    </Link>
+                  </Button>
                 </CardContent>
               </CardHeader>
             </Card>
