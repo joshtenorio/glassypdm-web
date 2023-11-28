@@ -3,7 +3,7 @@ import { Button } from "~/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/ui/card";
 
 async function getData() {
-  const res: Response = await fetch("https://app.pdm.18x18az.org/info/commit/recent", { cache: "no-store" });
+  const res: Response = await fetch("https://app.pdm.18x18az.org/info/commit/recent");
   const data: ServerCommit[] = await res.json() as ServerCommit[];
   const output: Commit[] = [];
   try {
