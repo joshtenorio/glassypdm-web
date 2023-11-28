@@ -25,6 +25,7 @@ export interface File {
     s3key: string;
     projectid: number;
     changetype: number;
+    url?: string;
 }
 
 export interface CommitFull {
