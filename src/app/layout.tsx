@@ -1,4 +1,4 @@
-import { GeistSans } from "geist/font";
+import { GeistSans } from "geist/font/sans";
 import "~/styles/globals.css";
 import { ThemeProvider } from "~/ui/theme-provider";
 import Navbar from "./Navbar";
