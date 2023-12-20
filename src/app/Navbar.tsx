@@ -36,7 +36,7 @@ function Navbar() {
                 <SimpleNavbarItem href="/files" desc="Project Files"/>
                 <SimpleNavbarItem href="/commit" desc="Project History"/>
                 <SimpleNavbarItem href="/about" desc="About"/>
-                <SimpleNavbarItem href="/login" desc="Login"/>
+                <SimpleNavbarItem href="/login" desc="Account"/>
             </NavigationMenuList>
         </NavigationMenu>
         <Separator />

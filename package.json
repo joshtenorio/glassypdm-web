@@ -10,6 +10,7 @@
     "shadcn": "npx shadcn-ui@latest"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.28.1",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-navigation-menu": "^1.1.4",
