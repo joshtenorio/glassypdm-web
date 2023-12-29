@@ -1,5 +1,5 @@
 import React from 'react'
-import { CommitFull, File } from '~/lib/types';
+import type { CommitFull, File } from '~/lib/types';
 import { Button } from '~/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '~/ui/table';
 
