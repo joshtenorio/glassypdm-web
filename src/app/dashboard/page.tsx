@@ -1,8 +1,6 @@
-import React from 'react'
-
 function Page() {
   return (
-    <div>WIP</div>
+    <div>WIP dashboard</div>
   )
 }
 

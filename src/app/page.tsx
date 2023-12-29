@@ -1,66 +1,27 @@
-import { Commit, ServerCommit } from "~/lib/types";
 import { Button } from "~/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/ui/card";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
-
-async function getData() {
-  const res: Response = await fetch("https://app.pdm.18x18az.org/info/commit/recent", { 
-next: { revalidate: 450 } });
-
-  const data: ServerCommit[] = await res.json() as ServerCommit[];
-  const output: Commit[] = [];
-  try {
-    for(let i = 0; i < data.length; i++) {
-      const commit: ServerCommit = data[i]!;
-      output.push({
-        id: commit.id,
-        projectID: 0,
-        authorID: commit.authorID,
-        message: commit.message,
-        fileCount: commit.filecount,
-        timestamp: parseInt(commit.timestamp) / 1000.0
-      });
-    }
-  } catch(err) {
-    console.error(err);
-  }
-  return output;
-}
 
 export const metadata: Metadata = {
   title: "glassyPDM"
 }
 
-export default async function Page() {
-  const data = await getData();
+export default function Page() {
     return <>
     <p className="text-3xl mx-8 mt-5 mb-2">Home</p>
-    {
-      data.map( (value: Commit) => {
-        const d = new Date(0);
-        d.setUTCSeconds(value.timestamp);
-        const msg = value.message !== "" ? <div><i>{value.message}</i><br></br></div> : <p></p>
-        const url = "/commit/" + value.id.toString();
-        return (
-          <div className="mb-5 mx-5" key={value.timestamp}>
-            <Card>
-              <CardHeader>
-                <CardTitle>Update {value.id}: {value.authorID} updated {value.fileCount} files</CardTitle>
-                <CardDescription>{d.toLocaleString()} UTC</CardDescription>
-                <CardContent>
-                  {msg}
-                  <Button>
-                    <Link href={url}>
-                    Review Changes
-                    </Link>
-                  </Button>
-                </CardContent>
-              </CardHeader>
-            </Card>
-          </div>
-        )
-      })
-    }
+    <Card>
+    <CardHeader>
+      <CardTitle>SDM-24</CardTitle>
+      <CardDescription>2023-24</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <Button>
+        <Link href={"/project/0"}>
+        Go to Project Home
+        </Link>
+      </Button>
+    </CardContent>
+    </Card>
     </>
   }
