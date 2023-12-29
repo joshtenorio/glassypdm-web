@@ -2,7 +2,7 @@
 
 function Page() {
   return (
-    <div>this is a page</div>
+    <div>this is a page, we should probably list all projects here</div>
   )
 }
 
