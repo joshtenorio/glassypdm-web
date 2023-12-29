@@ -1,3 +1,12 @@
+# glassyPDM Webapp
+Built with the [T3 Stack](https://create.t3.gg/).
+## Dev Instructions
+```bash
+$ yarn dev
+```
+
+## License
+AGPL v3
 # Create T3 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
