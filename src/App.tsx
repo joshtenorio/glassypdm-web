@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"
 import Home from './routes/Home'
 import SignIn from './routes/SignIn'
+import Navbar from './components/Navbar'
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,10 @@ const router = createBrowserRouter([
 
 function Layout() {
   return (
-    <Outlet />
+    <div>
+      <Navbar />
+      <Outlet />
+    </div>
   )
 }
 
