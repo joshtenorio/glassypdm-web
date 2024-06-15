@@ -4,19 +4,29 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { useQuery } from '@tanstack/react-query'
 import { Link, createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/')({
-  component: Index,
+type HistorySearch = {
+  offset: number
+}
+
+export const Route = createFileRoute('/history')({
+  validateSearch: (search: Record<string, unknown>): HistorySearch => {
+    return {
+      offset: Number(search.offset ?? 0)
+    }
+  },
+  component: () => <HistoryPage />
 })
 
-function Index() {
-  const { isPending, isError, error, data } = useQuery({
-    queryKey: ['home'],
+function HistoryPage() {
+  const { offset } = Route.useSearch()
+  const { isPending, isError, data, error } = useQuery({
+    queryKey: ['offset' + String(offset)],
     queryFn: async () => {
-      const endpoint = 'https://app.pdm.18x18az.org' + '/info/commit/recent';
+      const endpoint = 'https://app.pdm.18x18az.org' + '/info/commit/offset/' + String(offset);
       const resp = await fetch(endpoint);
       return resp.json()
     }
-  });
+  })
 
   if(isPending) {
     return (
@@ -43,7 +53,10 @@ function Index() {
           )
         })
       }
-      <Button asChild><Link to='/history' search={{ offset: 5}} className='font-semibold'>View Older Updates</Link></Button>
+      <div className='flex flex-row flex-none space-x-4'>
+      <Link to='/history' search={{ offset: offset - 5}} className='font-semibold' disabled={offset == 0 ? true : false}><Button disabled={offset == 0 ? true : false}>View Newer Updates</Button></Link>
+      <Link to='/history' search={{ offset: offset + 5}} className='font-semibold'><Button>View Older Updates</Button></Link>
+      </div>
     </div>
   )
 }

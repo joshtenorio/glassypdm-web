@@ -13,6 +13,9 @@ function Navbar() {
                     <NavigationMenuLink asChild><Link to="/" className={cn(navigationMenuTriggerStyle(), "font-semibold text-2xl")}>glassyPDM</Link></NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
+                    <NavigationMenuLink asChild><Link to="/history" search={{ offset: 0 }} className={cn(navigationMenuTriggerStyle(), "font-semibold text-lg")}>History</Link></NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
                     <NavigationMenuLink asChild><Link to="/about" className={cn(navigationMenuTriggerStyle(), "font-semibold text-lg")}>About</Link></NavigationMenuLink>
                 </NavigationMenuItem>
             </NavigationMenuList>
