@@ -2,7 +2,6 @@ import Navbar from '@/components/navbar'
 import { ThemeProvider } from '@/components/ui/theme-provider'
 import { SignedIn, SignedOut, SignIn } from '@clerk/clerk-react'
 import { createRootRoute, Outlet } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 
 export const Route = createRootRoute({
   component: () => (
@@ -16,7 +15,6 @@ export const Route = createRootRoute({
       <ThemeProvider defaultTheme='system' storageKey='vite-ui-theme'>
       <Navbar />
       <Outlet />
-      <TanStackRouterDevtools />
       </ThemeProvider>
     </SignedIn>
     </>
