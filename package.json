@@ -11,6 +11,7 @@
     "shadcn": "npx shadcn-ui@latest"
   },
   "dependencies": {
+    "@clerk/clerk-react": "^5.2.4",
     "@radix-ui/react-slot": "^1.0.2",
     "@tanstack/react-router": "^1.38.1",
     "class-variance-authority": "^0.7.0",
