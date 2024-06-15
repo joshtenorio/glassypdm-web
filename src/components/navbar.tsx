@@ -3,6 +3,7 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuL
 import { ModeToggle } from "./mode-toggle"
 import { Separator } from "./ui/separator"
 import { cn } from "@/lib/utils"
+import { UserButton } from "@clerk/clerk-react"
 
 function Navbar() {
   return (
@@ -20,6 +21,7 @@ function Navbar() {
                 </NavigationMenuItem>
             </NavigationMenuList>
         <ModeToggle />
+        <UserButton />
         </NavigationMenu>
         <Separator />
     </div>
