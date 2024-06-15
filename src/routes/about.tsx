@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button'
 import { createFileRoute } from '@tanstack/react-router'
-import { Github } from 'lucide-react'
 
 export const Route = createFileRoute('/about')({
   component: About,
