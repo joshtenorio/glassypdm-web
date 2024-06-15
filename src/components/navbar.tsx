@@ -10,10 +10,10 @@ function Navbar() {
         <NavigationMenu className="p-2 space-x-2">
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <Link to="/"><NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "font-semibold text-xl")}>glassyPDM</NavigationMenuLink></Link>
+                    <NavigationMenuLink asChild><Link to="/" className={cn(navigationMenuTriggerStyle(), "font-semibold text-2xl")}>glassyPDM</Link></NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <Link to="/about"><NavigationMenuLink className={navigationMenuTriggerStyle()}>About</NavigationMenuLink></Link>
+                    <NavigationMenuLink asChild><Link to="/about" className={cn(navigationMenuTriggerStyle(), "font-semibold text-lg")}>About</Link></NavigationMenuLink>
                 </NavigationMenuItem>
             </NavigationMenuList>
         <ModeToggle />
