@@ -58,7 +58,7 @@ function CommitPage() {
     <div className='p-4'>
       <div>Project Update {id}</div>
       <div>Author: {data.author}</div>
-      <div>Updated at: {d.toLocaleString()} UTC</div>
+      <div>Updated at: {d.toLocaleString()}</div>
       <div>{data.count} files updated</div>
       <div>{data.message}</div>
       <Separator className='w-96 my-4'/>

@@ -75,7 +75,7 @@ function CommitCard(props: CommitCardProps) {
     <Card className='w-fit'>
       <CardHeader>
         <CardTitle>Project Update {props.id}: {props.author} made {props.numFiles} changes</CardTitle>
-        <CardDescription>{d.toLocaleString()} UTC</CardDescription>
+        <CardDescription>{d.toLocaleString()}</CardDescription>
       </CardHeader>
       <CardContent className='flex flex-col'>
         {props.message}
